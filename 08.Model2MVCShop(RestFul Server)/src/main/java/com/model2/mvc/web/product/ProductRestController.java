@@ -51,19 +51,18 @@ public class ProductRestController {
 	
 
 	
-//	//@RequestMapping("/addProduct.do")
-//	@RequestMapping( value="json/addProduct", method=RequestMethod.POST )
-//	public String addProduct( @ModelAttribute("product") Product product ) throws Exception {
-//
-//		System.out.println("/product/addProduct : POST");
-//		//Business Logic
-//		productService.addProduct(product);
-//		
-//		return productService.getProduct(prodNo);
-//	}
+	//@RequestMapping("/addProduct.do")
+	@RequestMapping( value="json/addProduct", method=RequestMethod.POST )
+	public void addProduct( @RequestBody Product product ) throws Exception {
+
+		System.out.println("/product/addProduct : POST");
+		//Business Logic
+		productService.addProduct(product);
+		
+	}
 	
 	//@RequestMapping("/getProduct.do")
-	@RequestMapping( value="json/getProduct", method=RequestMethod.GET )
+	@RequestMapping( value="json/getProduct/{prodNo}", method=RequestMethod.GET )
 	public Product getProduct( @PathVariable int prodNo ) throws Exception {
 		
 		System.out.println("/product/getProduct : GET");
